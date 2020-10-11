@@ -1,8 +1,11 @@
+var mode="num";
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.grid');
   let n=10;
   let squares=[];
-  let cnt=25;
+  let cnt=20;
+  
+
   function createBoard(){
 	  const arr=[];
 	  var i=0;
@@ -33,7 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		  //console.log(squares[i]);
 		  square.addEventListener('click',function(e)
 		  {
-			  click(square);
+			if(mode=="num"){
+				
+				click(square);
+			}  
+			else{
+				toggle_flag(square);
+
+			}
 		  })
 		  
 	  }
@@ -135,12 +145,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	  {
 		  if(squares[i].classList.contains('bomb'))
 		  {
-			  var a=squares[i].id;
-			  var img=document.createElement('img');
+			  
+			  let img=document.createElement('img');
 			  img.src='bomb.png';
 			  squares[i].appendChild(img);
 		  }
 	  }
+  }
+  function toggle_flag(square)
+  {
+	  if(!square.firstChild){
+		  let img=document.createElement("img");
+		  img.src="flag.png";
+		  square.appendChild(img);
+	  }
+	  else{
+		  square.removeChild(square.firstChild);
+	  }
+	  
   }
   
   
@@ -148,3 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
   
   
 })
+function change_mode(){
+	if(mode=="num")
+	{
+		mode="flag";
+		document.getElementById("mode").src="flag.png";
+	}
+	else
+	{
+		mode="num";
+		document.getElementById("mode").src="num.png";
+	}
+}
