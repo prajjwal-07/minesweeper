@@ -1,5 +1,5 @@
 # Minesweeper game
-<a href=" https://prajjwal-07.github.io/minesweeper/" target="_blank">click to play</a>
+<a href="https://prajjwal-07.github.io/minesweeper/">click to play</a>
 
 <img src="screenshot/img1.png">
 <hr>
