@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		  square.addEventListener('click',function(e)
 		  {
 			if(mode=="num"){
-				
+				if(!square.firstChild)
 				click(square);
 			}  
 			else{
